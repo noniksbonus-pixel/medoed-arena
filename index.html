@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#fff0b8"><title>Медоед-Арена</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main id="app">
+    <canvas id="game" aria-label="Игровое поле"></canvas>
+    <div id="hud" class="hidden">
+      <div class="hud-left"><div id="health"><span>❤</span><div class="bar"><i></i></div></div><div id="level">Ур. 1 · 0 XP</div><div id="weapon">Без оружия</div></div>
+      <div id="leaderboard-mini"><b>🏆 ТОП АРЕНЫ</b><ol></ol></div>
+      <div id="mobile-controls" class="hidden"><div id="stick"><div id="stick-knob"></div></div><button id="touch-attack">⚔</button><button id="touch-skill">✦</button></div>
+      <div id="toast"></div>
+    </div>
+    <section id="menu" class="screen">
+      <div class="menu-card"><div class="logo-badger">🦡</div><p class="eyebrow">ДИКИЙ МИР • БОЛЬШАЯ АРЕНА</p><h1>МЕДОЕД-<span>АРЕНА</span></h1><p class="subtitle">Сражайся, собирай оружие и покори таблицу лидеров!</p>
+        <input id="player-name" class="name-input" maxlength="18" placeholder="Твоё имя на арене" autocomplete="nickname">
+        <div class="menu-actions"><button id="play" class="primary">Играть</button><button id="fighters-open">Выбор бойца</button><button id="leaders-open">Таблица лидеров</button><a class="button" href="https://pay.cloudtips.ru/p/eeff1ced" target="_blank" rel="noopener">Поддержать проект 💛</a></div>
+        <p class="menu-hint">WASD / стрелки — движение · мышь — атака · пробел / ПКМ — способность</p>
+      </div><div class="decor d1">🍯</div><div class="decor d2">🌼</div><div class="decor d3">⭐</div>
+    </section>
+    <section id="fighter-screen" class="screen hidden"><div class="panel wide"><button class="close" data-close>✕</button><p class="eyebrow">СОБЕРИ СВОЙ СТИЛЬ</p><h2>Выбор бойца</h2><div id="fighter-grid"></div><button id="confirm-fighter" class="primary">Выбрать бойца</button></div></section>
+    <section id="leader-screen" class="screen hidden"><div class="panel"><button class="close" data-close>✕</button><p class="eyebrow">ЛЕГЕНДЫ АРЕНЫ</p><h2>Таблица лидеров</h2><div id="leaderboard-full"></div></div></section>
+    <section id="death-screen" class="screen hidden"><div class="panel result"><p class="eyebrow">РАУНД ЗАВЕРШЁН</p><h2>Храбрый бой!</h2><div id="result-stats"></div><button id="return-menu" class="primary">В главное меню</button></div></section>
+    <section id="upgrade-screen" class="screen hidden"><div class="panel wide"><p class="eyebrow">НОВЫЙ УРОВЕНЬ!</p><h2>Выбери улучшение</h2><div id="upgrade-cards"></div></div></section>
+    <div id="connection" class="connection">Подключаемся к арене…</div>
+  </main>
+  <script src="/socket.io/socket.io.js"></script><script type="module" src="/js/main.js"></script>
+</body></html>
